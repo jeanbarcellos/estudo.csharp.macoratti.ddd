@@ -4,13 +4,13 @@ namespace Contatos.Domain.Models
 {
     public class Contato : BaseEntity
     {
-        public string Name { get; set; }
+        public string Nome { get; set; }
         public string Email { get; set; }
 
         public Contato(string nome, string email)
         {
             ValidaCategoria(nome, email);
-            Name = nome;
+            Nome = nome;
             Email = email;
         }
 

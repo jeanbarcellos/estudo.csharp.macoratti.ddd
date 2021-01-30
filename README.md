@@ -65,25 +65,30 @@ Referências:
 
 ```
 dotnet add Contatos.Infra reference Contatos.Domain
+
+dotnet add Contatos.Web reference Contatos.Domain
+dotnet add Contatos.Web reference Contatos.Application
 ```
 
 ### Implementando o projeto Contatos.Domain
 
 Acessar o diretório `Contatos.Domain`
 
-Criar o diretório `Models`
+Criar o diretório `Models` e fazer implementações
 
-Criar o diretório `Interfaces`
+Criar o diretório `Interfaces`e fazer implementações
 
 ### Implementando o projeto Contatos.Infra
 
-Acessar o diretório `Contatos.Infra`
+Acessar o diretório `src`
 
 Criar as referências:
 
 ```
 dotnet add Contatos.Infra reference Contatos.Domain
 ```
+
+Acessar o diretório `Contatos.Infra`
 
 Instalar os pacotes:
 
@@ -92,4 +97,35 @@ dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 ```
 
+Criar o diretório `Context`e fazer implementações
+
+Criar o diretório `Repositories`e fazer implementações
+
 _Obs: Não usarei o SQLServer_
+
+### Implementando o projeto Contatos.Web
+
+Acessar o diretório `src`
+
+Criar as referências:
+
+```
+dotnet add Contatos.Web reference Contatos.Domain
+dotnet add Contatos.Web reference Contatos.Application
+```
+
+Acessar o diretório `Contatos.Web`
+
+No arquivo `appsettings.json` definir a string de conexão:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=Macoratti;Initial Catalog=ContatosDDD;Integrated Security=True"
+  }
+}
+```
+
+Criar o diretório `DTOs` e fazer implementações
+
+Criar `ContatosController` no diretório `Controllers` e fazer implementações
