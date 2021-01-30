@@ -23,7 +23,8 @@ A seguir vou me basear em uma arquitetura genérica para criar a aplicação e q
 - **Domínio** - É o coração do projeto e deve representar o negócio; Aqui teremos : entidades, Interfaces, Classes de serviços, Validações, etc.
 - **Infraestrutura** - Cuida do suporte geral às demais implementações e em geral possui uma outra camada que se comunica com todas as camadas do projeto; Aqui podemos ter Repositórios, Persistência, Mapeamentos, etc.
 
-## Anotações
+<br>
+<br>
 
 ### Criação dos projetos e solução
 
@@ -81,6 +82,7 @@ Criar o diretório `Models` e fazer implementações
 
 Criar o diretório `Interfaces`e fazer implementações
 
+<br>
 <hr>
 
 ### Implementando o projeto Contatos.Infra
@@ -108,6 +110,7 @@ Criar o diretório `Repositories`e fazer implementações
 
 _Obs: Não usarei o SQLServer_
 
+<br>
 <hr>
 
 ### Implementando o projeto Contatos.Web
@@ -137,6 +140,7 @@ Criar o diretório `DTOs` e fazer implementações
 
 Criar `ContatosController` no diretório `Controllers` e fazer implementações
 
+<br>
 <hr>
 
 ### Implementando o projeto Contatos.Application
@@ -161,3 +165,35 @@ dotnet add package Microsoft.Extensions.DependencyInjection.Abstractions
 Criar o diretório `DI` e fazer implementações
 
 Criar a classe `Initializer` onde usarêmos a instância de `ServiceCollection` para realizar a injeção de dependência dos serviços e também definir o provedor do banco de dados e a string de conexão.
+
+<br>
+<hr>
+
+### Criando as Migrations
+
+Acessar o diretório `Contatos.Web`
+
+Instsalar o pacote:
+
+```
+dotnet add package Microsoft.EntityFrameworkCore.Design
+```
+
+Acessar o diretório `Contatos.Infra`
+
+Executar o comando para gerar as migrações:
+
+```
+dotnet ef --startup-project ../Contatos.Web --project ./Contatos.Infra.csproj migrations add ContatosInicial
+```
+
+- Observe que no comando definimos o projeto startup como sendo o projeto `Contatos.Web` que contém a string de conexão e o projeto `Contatos.Infra` onde temos as referências ao `EntityFramework`.
+- Tabmém foi preciso instalar o pacote `Microsoft.EntityFrameworkCore.Design` em `Contatos.Web`
+
+Executar o domando para aplicar as Migrações no banco de dados:
+
+```
+dotnet ef --startup-project ../Contatos.Web --project ./Contatos.Infra.csproj database update
+```
+
+FEITOOO

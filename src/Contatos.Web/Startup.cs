@@ -19,7 +19,7 @@ namespace Contatos.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            Initializer.Configure(services, Configuration.GetConnectionString("DefaultConnection"));
+            Initializer.Configure(services, Configuration.GetConnectionString("Default"));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
