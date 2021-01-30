@@ -53,10 +53,18 @@ Incluir todos os projetos na solução
 
 ```
 cd ..
-
+dotnet sln add src/Contatos.Domain/Contatos.Domain.csproj
 dotnet sln add src/Contatos.Application/Contatos.Application.csproj
 dotnet sln add src/Contatos.Infra/Contatos.Infra.csproj
 dotnet sln add src/Contatos.Web/Contatos.Web.csproj
 
 dotnet restore
 ```
+
+### Implementando o projeto Contatos.Domain
+
+Acessar o diretório `Contatos.Domain`
+
+Criar o diretório `Models`
+
+
