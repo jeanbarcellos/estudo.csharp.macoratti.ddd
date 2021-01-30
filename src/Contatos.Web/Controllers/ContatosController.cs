@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Contatos.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/contatos")]
     public class ContatosController : Controller
     {
         private readonly ContatoService _contatoService;
