@@ -61,10 +61,35 @@ dotnet sln add src/Contatos.Web/Contatos.Web.csproj
 dotnet restore
 ```
 
+Referências:
+
+```
+dotnet add Contatos.Infra reference Contatos.Domain
+```
+
 ### Implementando o projeto Contatos.Domain
 
 Acessar o diretório `Contatos.Domain`
 
 Criar o diretório `Models`
 
+Criar o diretório `Interfaces`
 
+### Implementando o projeto Contatos.Infra
+
+Acessar o diretório `Contatos.Infra`
+
+Criar as referências:
+
+```
+dotnet add Contatos.Infra reference Contatos.Domain
+```
+
+Instalar os pacotes:
+
+```
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+```
+
+_Obs: Não usarei o SQLServer_
