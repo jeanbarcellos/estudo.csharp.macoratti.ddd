@@ -22,3 +22,41 @@ A seguir vou me basear em uma arquitetura genérica para criar a aplicação e q
 - **Aplicação** - Cuida da comunicação com o Domínio; Aqui podemos ter: Classes de serviços, Interfaces, DTOs, etc.
 - **Domínio** - É o coração do projeto e deve representar o negócio; Aqui teremos : entidades, Interfaces, Classes de serviços, Validações, etc.
 - **Infraestrutura** - Cuida do suporte geral às demais implementações e em geral possui uma outra camada que se comunica com todas as camadas do projeto; Aqui podemos ter Repositórios, Persistência, Mapeamentos, etc.
+
+## Anotações
+
+### Criação dos projetos e solução
+
+Criação da solução
+
+```
+dotnet new sln --name Contatos
+```
+
+Criar diretório `/src` e acessá-lo
+
+```
+mkdir src
+cd src
+```
+
+Criar projetos/camadas
+
+```
+dotnet new classlib --name Contatos.Domain
+dotnet new classlib --name Contatos.Application
+dotnet new classlib --name Contatos.Infra
+dotnet new webapi --name Contatos.Web
+```
+
+Incluir todos os projetos na solução
+
+```
+cd ..
+
+dotnet sln add src/Contatos.Application/Contatos.Application.csproj
+dotnet sln add src/Contatos.Infra/Contatos.Infra.csproj
+dotnet sln add src/Contatos.Web/Contatos.Web.csproj
+
+dotnet restore
+```
