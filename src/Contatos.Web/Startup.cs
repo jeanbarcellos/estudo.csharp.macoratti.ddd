@@ -1,3 +1,4 @@
+using Contatos.Application.DI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,8 @@ namespace Contatos.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            Initializer.Configure(services, Configuration.GetConnectionString("DefaultConnection"));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

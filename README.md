@@ -68,6 +68,9 @@ dotnet add Contatos.Infra reference Contatos.Domain
 
 dotnet add Contatos.Web reference Contatos.Domain
 dotnet add Contatos.Web reference Contatos.Application
+
+dotnet add Contatos.Application reference Contatos.Domain
+dotnet add Contatos.Application reference Contatos.Infra
 ```
 
 ### Implementando o projeto Contatos.Domain
@@ -77,6 +80,8 @@ Acessar o diretório `Contatos.Domain`
 Criar o diretório `Models` e fazer implementações
 
 Criar o diretório `Interfaces`e fazer implementações
+
+<hr>
 
 ### Implementando o projeto Contatos.Infra
 
@@ -102,6 +107,8 @@ Criar o diretório `Context`e fazer implementações
 Criar o diretório `Repositories`e fazer implementações
 
 _Obs: Não usarei o SQLServer_
+
+<hr>
 
 ### Implementando o projeto Contatos.Web
 
@@ -129,3 +136,28 @@ No arquivo `appsettings.json` definir a string de conexão:
 Criar o diretório `DTOs` e fazer implementações
 
 Criar `ContatosController` no diretório `Controllers` e fazer implementações
+
+<hr>
+
+### Implementando o projeto Contatos.Application
+
+Acessar o diretório `src`
+
+Criar as referências:
+
+```
+dotnet add Contatos.Application reference Contatos.Domain
+dotnet add Contatos.Application reference Contatos.Infra
+```
+
+Acessar o diretório `Contatos.Application`
+
+Instalar os pacotes:
+
+```
+dotnet add package Microsoft.Extensions.DependencyInjection.Abstractions
+```
+
+Criar o diretório `DI` e fazer implementações
+
+Criar a classe `Initializer` onde usarêmos a instância de `ServiceCollection` para realizar a injeção de dependência dos serviços e também definir o provedor do banco de dados e a string de conexão.
